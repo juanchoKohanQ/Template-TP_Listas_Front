@@ -12,7 +12,7 @@ fetch('./data/comidas.json')          // Ruta al archivo JSON
     console.error('Error al leer el archivo JSON:', error);
   });
 
-let comida = [
+let comidas = [
   {
     "nombre": "Asado",
     "categoria": "Parrilla",
@@ -75,159 +75,31 @@ let comida = [
   }
 ];
 
-for(let i = 0; i <= 9; i++){
+const container = document.getElementById('comidaContainer');
+const comidaNueva = document.getElementById('agregarComida');
 
-if (i === 0){
-  const container = document.getElementById('comidaContainer').innerHTML +=
+function mostrarComidasConForEach() {
+
+  comidas.forEach( tarjeta => {
+    container.innerHTML +=
 `
   <article class="comida1">
-        <h2 class="comida">${comida[0].nombre}</h2>
-        <p>${comida[0].categoria}</p>
-        <p>${comida[0].provincia}</p>
-        <ul> 
-        ${comida[0].ingredientes}
+        <h2 class="comida">${tarjeta.nombre}</h2>
+        <p>${tarjeta.categoria}</p>
+        <p>${tarjeta.provincia}</p>
+        <span class ="categoria">${tarjeta.categoria}</span>
+        <ul>
+         ${tarjeta.ingredientes}
         </ul>
 </article>
 `
-console.log(comida1)
+  })
 }
- if(i === 1){
-  const container = document.getElementById('comidaContainer').innerHTML +=
+mostrarComidasConForEach();
 
-`
-  <article class="comida1">
-        <h2 class="comida">${comida[1].nombre}</h2>
-        <p>${comida[1].categoria}</p>
-        <p>${comida[1].provincia}</p>
-        <ul> 
-        ${comida[1].ingredientes}
-        </ul>
-</article>
-` 
-console.log(comida1)
-}
-else if(i === 2){
-  const container = document.getElementById('comidaContainer').innerHTML +=
-
-  `
-  <article class="comida2">
-        <h2 class="comida">${comida[2].nombre}</h2>
-        <p>${comida[2].categoria}</p>
-        <p>${comida[2].provincia}</p>
-        <ul> 
-        ${comida[2].ingredientes}
-        </ul>
-</article> 
-`
-console.log(comida1)
-}
- if(i === 3){
-  const container = document.getElementById('comidaContainer').innerHTML +=
-
-`
-  <article class="comida2">
-        <h2 class="comida">${comida[3].nombre}</h2>
-        <p>${comida[3].categoria}</p>
-        <p>${comida[3].provincia}</p>
-        <ul> 
-        ${comida[3].ingredientes}
-        </ul>
-</article>
-` 
-console.log(comida1)
-}
- if(i === 4){
-  const container = document.getElementById('comidaContainer').innerHTML +=
-
-  `
-  <article class="comida2">
-        <h2 class="comida">${comida[4].nombre}</h2>
-        <p>${comida[4].categoria}</p>
-        <p>${comida[4].provincia}</p>
-        <ul> 
-        ${comida[4].ingredientes}
-        </ul>
-</article> 
-`
-console.log(comida1)
-}
- if(i === 5){
-  const container = document.getElementById('comidaContainer').innerHTML +=
-
-`
-  <article class="comida2">
-        <h2 class="comida">${comida[5].nombre}</h2>
-        <p>${comida[5].categoria}</p>
-        <p>${comida[5].provincia}</p>
-        <ul> 
-        ${comida[5].ingredientes}
-        </ul>
-</article> 
-`
-console.log(comida1)
-}
- if(i === 6){
-  const container = document.getElementById('comidaContainer').innerHTML +=
-
-  `
-  <article class="comida2">
-        <h2 class="comida">${comida[6].nombre}</h2>
-        <p>${comida[6].categoria}</p>
-        <p>${comida[6].provincia}</p>
-        <ul> 
-        ${comida[6].ingredientes}
-        </ul>
-</article> 
-`
-console.log(comida1)
-}
- if(i === 7){
-  const container = document.getElementById('comidaContainer').innerHTML +=
-
-`
-  <article class="comida2">
-        <h2 class="comida">${comida[7].nombre}</h2>
-        <p>${comida[7].categoria}</p>
-        <p>${comida[7].provincia}</p>
-        <ul> 
-        ${comida[7].ingredientes}
-        </ul>
-</article> 
-`
-console.log(comida1)
-}
- if(i === 8){
-  const container = document.getElementById('comidaContainer').innerHTML +=
-  `
-  <article class="comida2">
-        <h2 class="comida">${comida[8].nombre}</h2>
-        <p>${comida[8].categoria}</p>
-        <p>${comida[8].provincia}</p>
-        <ul> 
-        ${comida[8].ingredientes}
-        </ul>
-</article> 
-`
-
-console.log(comida1)
-}
- if(i === 9){
-  const container = document.getElementById('comidaContainer').innerHTML +=
-`
-  <article class="comida2">
-        <h2 class="comida">${comida[9].nombre}</h2>
-        <p>${comida[9].categoria}</p>
-        <p>${comida[9].provincia}</p>
-        <ul> 
-        ${comida[9].ingredientes}
-        </ul>
-</article> 
-`
-console.log(comida1)
-}
-
-}
-
+comidaNueva.addEventListener("submit", (e) => {
+  alert("Comida nueva recibida" + e.target.nombre.Categoria.Provinciay.value);
+})
 
 /*let comida = {
   "nombre": "Asado",
