@@ -76,9 +76,10 @@ let comidas = [
 ];
 
 const container = document.getElementById('comidaContainer');
-const comidaNueva = document.getElementById('agregarComida');
 
 function mostrarComidasConForEach() {
+
+ container.innerHTML=""  
 
   comidas.forEach( tarjeta => {
     container.innerHTML +=
@@ -89,7 +90,7 @@ function mostrarComidasConForEach() {
         <p>${tarjeta.provincia}</p>
         <span class ="categoria">${tarjeta.categoria}</span>
         <ul>
-         ${tarjeta.ingredientes}
+      
         </ul>
 </article>
 `
@@ -97,12 +98,26 @@ function mostrarComidasConForEach() {
 }
 mostrarComidasConForEach();
 
-comidaNueva.addEventListener("submit", (e) => {
-  alert("Comida nueva recibida" + e.target.nombre.Categoria.Provinciay.value);
+const comidaNueva = document.getElementById("agregarComida");
+const boton = document.getElementById("enviarComida");
+
+comidaNueva.addEventListener("submit", (event) => {
+  event.preventDefault();
+  //alert("Comida nueva recibida" + event.target.nombre.value);
+  let nuevaComida = {
+   nombre: event.target.nombre.value, 
+   categoria: event.target.categoria.value,  
+   provincia: event.target.provincia.value,
+   //ingredientes: event.target.ingredientes.value,   
+  }
+
+  comidas.push(nuevaComida)
+
+  mostrarComidasConForEach()
 })
 
-/*let comida = {
-  "nombre": "Asado",
+/*let comida = { 
+  nombre": "Asado",
   "categoria": "Parrilla",
   "provincia": "Buenos Aires",
   "ingredientes": ["Carne vacuna", "Sal", "Chimichurri"]
